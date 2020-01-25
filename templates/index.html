@@ -1,0 +1,28 @@
+<!-- Form
+  ================================================== -->
+<head>
+    <meta http-equiv="content-type" charset="utf-8">
+    <title>受身マスター</title>
+</head>
+<div class="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead">
+                   <font size=7>受身マスターの記録</font>
+                </p>
+            </div>
+            <div class="dani">
+                <font size=6> 段位認定モード </font>
+                <div class="first">
+                    {{ dani_first_name }} ： {{ dani_first_score }}
+                </div>
+            </div>
+            <div class="update">
+                <form action="/webpageget" method="get" class="form-inline">
+                    <button type="submit" class="btn btn-default">更新する</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
