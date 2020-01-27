@@ -47,10 +47,7 @@ def do_POST():
 
 def ScoreAppend(get_data):
     mode = get_data['mode']
-    if mode == 'dani':
-        ranking = DaniRankCheck(get_data)
-    elif mode == 'endless':
-        ranking = EndlessRankCheck(get_data)
+    ranking = RankingCheck(mode,get_data)
 
     send_data = Get_ScoreAppendJson()
     send_data['state'] = "Info"
@@ -117,16 +114,16 @@ def RankingSubmit():
 def DaniRankCheck(get_data):
     return 12345
 
-def EndlessRankCheck(get_data):
+def RankingCheck(mode,get_data):
     name = str(get_data['name'])
     score = int(get_data['score'])
     ranking = 100
     with Get_Connection() as conn:
         with conn.cursor() as cur:
-            cur.execute('SELECT * FROM endless')
+            cur.execute('SELECT * FROM {mode}'.format(mode=mode))
             rows = cur.fetchall()
             #スコアで並び替え
             rows.sort(key=lambda x: x[1], reverse=True)
             ranking = len([i for i in rows if i[1] > score]) + 1
-            cur.execute('INSERT INTO endless VALUES ({name}, {score})'.format(name="'"+name+"'", score=score))
+            cur.execute('INSERT INTO {mode} VALUES ({name}, {score})'.format(mode=mode, name="'"+name+"'", score=score))
     return ranking
