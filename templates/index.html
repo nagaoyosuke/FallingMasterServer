@@ -14,9 +14,61 @@
             </div>
             <div class="dani">
                 <font size=6> 段位認定モード </font>
-                <div class="first">
-                    {{ dani_first_name }} ： {{ dani_first_score }}
-                </div>
+                <table border="1" width="500" cellspacing="0" cellpadding="5">             
+                    <tr>
+                        <th>名前</th>
+                        <th>段位</th>
+                    </tr>
+                    <tr>
+                        <td>{{ d_1_n }}</td>
+                        <td>{{ d_1_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ d_2_n }}</td>
+                        <td>{{ d_2_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ d_3_n }}</td>
+                        <td>{{ d_3_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ d_4_n }}</td>
+                        <td>{{ d_4_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ d_5_n }}</td>
+                        <td>{{ d_5_s }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="endless">
+                <font size=6> エンドレスモード </font>
+                <table border="1" width="500" cellspacing="0" cellpadding="5">             
+                    <tr>
+                        <th>名前</th>
+                        <th>スコア</th>
+                    </tr>
+                    <tr>
+                        <td>{{ e_1_n }}</td>
+                        <td>{{ e_1_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ e_2_n }}</td>
+                        <td>{{ e_2_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ e_3_n }}</td>
+                        <td>{{ e_3_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ e_4_n }}</td>
+                        <td>{{ e_4_s }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ e_5_n }}</td>
+                        <td>{{ e_5_s }}</td>
+                    </tr>
+                </table>
             </div>
             <div class="update">
                 <form action="/webpageget" method="get" class="form-inline">
