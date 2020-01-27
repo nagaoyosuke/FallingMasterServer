@@ -1,0 +1,10 @@
+APScheduler==3.5.1
+bottle==0.12.13
+Django==2.0.7
+djangoproject==0.0.1
+Flask==1.0.2
+gunicorn==19.9.0
+httplib2==0.11.3
+requests==2.19.1
+urllib3==1.23
+psycopg2==2.8.3
