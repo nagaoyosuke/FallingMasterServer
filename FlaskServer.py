@@ -4,7 +4,8 @@ import psycopg2
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-dsn = 'ここ'
+dsn = os.environ["DATABASE_URL"]
+
 
 dani_base = ['なし','初段','弐段','参段','四段','伍段','六段','七段','八段','九段','十段','皆伝']
 
@@ -95,6 +96,7 @@ def Get_ScoreAppendJson():
 def Set_DBPass(p):
     global dsn
     dsn = p
+    print(p)
 
 def Get_Connection():
     return psycopg2.connect(dsn)
