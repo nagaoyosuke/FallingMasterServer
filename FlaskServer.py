@@ -117,10 +117,10 @@ def RankingCheck(mode,get_data):
     ranking = 100
     with Get_Connection() as conn:
         with conn.cursor() as cur:
-            cur.execute('SELECT * FROM {mode}'.format(mode=mode))
+            cur.execute('SELECT * FROM %s',(mode,))
             rows = cur.fetchall()
             #スコアで並び替え
             rows.sort(key=lambda x: x[1], reverse=True)
             ranking = len([i for i in rows if i[1] > score]) + 1
-            cur.execute('INSERT INTO {mode} VALUES ({name}, {score})'.format(mode=mode, name="'"+name+"'", score=score))
+            cur.execute('INSERT INTO %s VALUES (%s, %d)',(mode,"'"+name+"'", int(score),))
     return ranking
