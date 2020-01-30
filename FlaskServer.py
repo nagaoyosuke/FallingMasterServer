@@ -124,5 +124,5 @@ def RankingCheck(mode,get_data):
             rows.sort(key=lambda x: x[1], reverse=True)
             ranking = len([i for i in rows if i[1] > score]) + 1
             s = 'INSERT INTO ' + mode + ' VALUES (%s, %s)'
-            cur.execute(s,("'"+name+"'", score,))
+            cur.execute(s,(name, score,))
     return ranking
