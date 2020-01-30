@@ -33,6 +33,8 @@ def WebPage_GET():
 def do_POST():
     #jsonに変換するために一回文字列に変えてる
     get_data = request.data.decode('utf-8')
+    print(get_data)
+
     get_data = json.loads(get_data)
     
     if get_data['unity'] != "True":
@@ -50,7 +52,7 @@ def ScoreAppend(get_data):
     mode = get_data['mode']
     ranking = RankingCheck(mode,get_data)
 
-    send_data = Get_ScoreAppendJson()
+    send_data = {}
     send_data['state'] = "ScoreAppend"
     send_data['mode'] = mode
     send_data['ranking'] = str(ranking)
@@ -85,11 +87,6 @@ def Get_Best5(mode):
         data.append(b)
         print(b)
     return data
-
-def Get_ScoreAppendJson():
-    with open('static/JSON/ScoreAppend.json') as f:
-        data = json.load(f)
-        return data
 
 def Set_DBPass(p):
     global dsn
