@@ -51,8 +51,7 @@ def ScoreAppend(get_data):
     ranking = RankingCheck(mode,get_data)
 
     send_data = Get_ScoreAppendJson()
-    send_data['state'] = "Info"
-    send_data['message'] = "ChangeOK"
+    send_data['state'] = "ScoreAppend"
     send_data['mode'] = mode
     send_data['ranking'] = str(ranking)
 
@@ -64,7 +63,6 @@ def Get_Score(get_data):
     d = r[0]
     e = r[1]
 
-    base = dict([('name','名無し'), ('score','123')])
     send_data = {"state": "GetScore","dani": [],"endless": []}
 
     send_data['dani'].append(Get_Best5(d))
