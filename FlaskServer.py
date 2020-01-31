@@ -67,8 +67,8 @@ def Get_Score(get_data):
 
     send_data = {"state": "GetScore","dani": [],"endless": []}
 
-    send_data['dani'].append(Get_Best5(d))
-    send_data['endless'].append(Get_Best5(e))
+    send_data['dani'] = Get_Best5(d)
+    send_data['endless'] = Get_Best5(e)
 
     print('{state}::OK'.format(state=send_data['state']))
     return send_data
